@@ -6,7 +6,7 @@
 
 2. La variable d'environnement qui permet à la commande **cd** de nous ramener dans notre répertoire personnel est **HOME**.
 
-3.  Variables | Rôles
+3. Variables | Rôles
     --------- | -----
     **LANG** | Elle détermine la langue que les logiciels utilisent pour communiquer avec l’utilisateur
     **PWD** | Elle permet d'afficher le chemin d'accès vers le répertoire où se situe l'utilisateur qui a entré la commande
@@ -14,6 +14,6 @@
     **SHELL** | Elle permet d'aller dans le répertoire des scripts **/bin/bash**
     **_** | Elle signifie le dernier argument de la commande précédente
 
-4. ```
-serveur@serveur:~$ export MY_VAR="yourself" ; printenv MY_VAR
-```
+4. > export MY_VAR="yourself" ; printenv MY_VAR
+
+5. gray for computing install
