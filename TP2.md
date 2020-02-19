@@ -14,5 +14,6 @@
     **SHELL** | Elle permet d'aller dans le répertoire des scripts **/bin/bash**
     **_** | Elle signifie le dernier argument de la commande précédente
 
-4. export MY_VAR="yourself" ; printenv MY_VAR
-
+4. ```
+serveur@serveur:~$ export MY_VAR="yourself" ; printenv MY_VAR
+```
