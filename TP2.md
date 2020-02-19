@@ -8,8 +8,9 @@
 
 3.  Variables | Rôles
     --------- | -----
-    **LANG** | détermine la langue que les logiciels utilisent pour communiquer avec l’utilisateur
-    **PWD** |
+    **LANG** | Elle détermine la langue que les logiciels utilisent pour communiquer avec l’utilisateur
+    **PWD** | Elle permet d'afficher le chemin d'accès vers le répertoire où se situe l'utilisateur qui a entré la commande
+    **OLDPWD** | (OLD **P**Rint **W**orking **D**irectory) contient le répertoire avant la dernière commande **cd** 
         > 
     * 
         > 
