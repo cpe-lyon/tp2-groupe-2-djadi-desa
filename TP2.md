@@ -2,5 +2,4 @@
 
 ## Exercice 1 - Variables d'environnement
 
-### 1.
-
+1. 
