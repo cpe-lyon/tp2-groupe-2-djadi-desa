@@ -96,3 +96,12 @@ if [ $# -ne 3 ]; then
     exit 1
 fi
 
+function si_nbre() {
+    res='^[+-]?[0-9]+([.][0-9]+)?$'
+    if ! [ $1 =~ $res ]; then
+        return 1
+    else
+        return 0
+    fi
+}
+```
