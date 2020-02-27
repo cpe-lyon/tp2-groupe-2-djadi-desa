@@ -31,31 +31,82 @@
 
 ``` BASH
 
-<!-- Script exo 2 à mettre -->
+#!/bin/bash
+
+PASSWORD=moula
+read -p 'Saisissez un mot de passe' -s a
+echo -e "\n"
+if [ $PASSWORD == $a ]; then
+        echo "Mot de passe accepté"
+else
+        echo "Accès refusé"
+fi
 
 ```
 
 ## Exercice 3 - Expressions rationnelles
 
 ``` BASH
+#!/bin/bash
 
-<!-- Script exo 3 à mettre -->
+function is_number()
+{
+        re='^[+-]?[0-9]+([.][0-9]+)?$'
+
+        if ! [[ $1 =~ $re ]]; then
+                return 1
+        else
+                return 0
+        fi
+}
+
+arg=$1
+
+if is_number $arg
+then
+        echo $arg" est bien un nombre réel"
+else
+        echo "Erreur, relancer le script"
+fi
 
 ```
 
 ## Exercice 4 - Contrôle d'utilisateur
 
 ``` BASH
+#!/bin/bash
+#set -x
 
-<!-- Script exo 4 à mettre -->
+monuser="jojo"
+
+if [ $# == 0 ]; then
+        echo "Utilisation: "$0" nom_utilisateur"
+elif [ $1 == $monuser ]; then
+        echo "Username valide"
+else
+        echo "Username non valide"
+fi
 
 ```
 
 ## Exercice 5 - Factorielle
 
 ``` BASH
+#!/bin/bash
 
-<!-- Script exo 5 à mettre -->
+n=$1
+i=1
+resultat=1
+if [ $n == 0 ]; then
+        echo 1
+else
+        while [ $i -le $n ]
+        do
+                let "resultat=$resultat * $i"
+                let "i=$i + 1"
+        done
+        echo $resultat
+fi
 
 ```
 
