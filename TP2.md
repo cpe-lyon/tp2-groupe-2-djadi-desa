@@ -17,3 +17,82 @@
 4. > export MY_VAR="yourself" ; printenv MY_VAR
 
 5. **MY_VAR** n'est plus là après avoir tapé la commande ```bash```.
+
+7. > export NOMS="DJADI DE_SA"
+   > printenv NOMS
+   
+8. > echo "Bonjour a vous deux, $NOMS"
+
+9. **unset** permet d'enlever la variable et non de lui donner une valeur vide.
+
+10. > echo \$HOME=$HOME
+
+## Exercice 2 - Contrôle de mot de passe
+
+``` BASH
+
+<!-- Script exo 2 à mettre -->
+
+```
+
+## Exercice 3 - Expressions rationnelles
+
+``` BASH
+
+<!-- Script exo 3 à mettre -->
+
+```
+
+## Exercice 4 - Contrôle d'utilisateur
+
+``` BASH
+
+<!-- Script exo 4 à mettre -->
+
+```
+
+## Exercice 5 - Factorielle
+
+``` BASH
+
+<!-- Script exo 5 à mettre -->
+
+```
+
+## Exercice 6 - Le juste prix
+
+``` BASH
+
+#!/bin/bash
+
+num=$(RANDOM%1000+1)
+
+#Pas trouvé - boucle infini
+while [ 1 -eq 1 ]; do
+
+    echo -n "Votre num : "
+    read numOk
+    
+    #Condition de si trop petit ou trop grand
+    if [ $numOk -gt $num ]; then
+        echo "Plus petit"
+    elif [ $numOk -lt $num ]; then
+        echo "Plus grand"
+    else
+        echo "Enfin trouve !"
+        break
+    fi
+done
+```
+
+## Exercice 7 - Statistiques
+
+1. ``` BASH
+
+#!bin/bash
+
+if [ $# -ne 3 ]; then
+    echo "3 arguments sont requis"
+    exit 1
+fi
+
