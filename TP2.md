@@ -87,8 +87,8 @@ done
 
 ## Exercice 7 - Statistiques
 
-1. ``` BASH
-
+1. 
+``` BASH
 #!bin/bash
 
 if [ $# -ne 3 ]; then
