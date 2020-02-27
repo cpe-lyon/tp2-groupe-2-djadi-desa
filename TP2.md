@@ -16,4 +16,4 @@
 
 4. > export MY_VAR="yourself" ; printenv MY_VAR
 
-5. gray for computing install
+5. **MY_VAR** n'est plus là après avoir tapé la commande ```bash```.
