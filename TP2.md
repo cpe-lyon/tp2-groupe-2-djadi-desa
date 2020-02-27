@@ -139,7 +139,7 @@ moy=$((moy / $i))
 
 echo min : $min
 echo max : $max
-echo moy : $moy(
+echo moy : $moy
 ```
 
 2.
