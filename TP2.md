@@ -65,7 +65,7 @@
 
 #!/bin/bash
 
-num=$(RANDOM%1000+1)
+num=$((RANDOM % 1000 + 1))
 
 #Pas trouvé - boucle infini
 while [ 1 -eq 1 ]; do
@@ -92,16 +92,162 @@ done
 #!bin/bash
 
 if [ $# -ne 3 ]; then
-    echo "3 arguments sont requis"
+    echo "3 arguments requis"
     exit 1
 fi
 
 function si_nbre() {
     res='^[+-]?[0-9]+([.][0-9]+)?$'
-    if ! [ $1 =~ $res ]; then
+    if ! [[ $1 =~ $res ]]; then
         return 1
     else
         return 0
     fi
 }
+
+min=0
+max=0
+moy=0
+i=1
+
+# Est-ce bien un nombre ?
+for var in "$@"; do
+    si_nbre $var
+    if [ $? == "1" ]; then
+        echo $var "Pas un nombre"
+        exit 1
+    else
+        if [ $i -eq 1 ]; then
+            min=$var
+            max=$var
+            moy=$((moy + $var))
+        else
+            if [ $var -lt $min ]; then
+                min=$var
+            elif [ $var -gt $max ]; then
+                max=$var
+            fi
+            moy=$((moy + $var))
+        fi
+    fi
+    i=$((i + 1))
+done
+
+#Moyenne calcul
+i=$((i - 1))
+moy=$((moy / $i))
+
+echo min : $min
+echo max : $max
+echo moy : $moy(
+```
+
+2.
+``` BASH
+#!/bin/bash
+
+function si_nbre() {
+    res='^[+-]?[0-9]+([.][0-9]+)?$'
+    if ! [[$1 =~ $res]]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+min=0
+max=0
+moy=0
+i=1
+
+for var in "$@"; do
+    si_nbre $var
+    if [ $? == "1" ]; then
+        echo $var "Pas un nombre"
+        exit 1
+    else
+        if [ $i -eq 1 ]; then
+            min=$var
+            max=$var
+            moy=$((moy + $var))
+        else
+            if [ $var -lt $min ]; then
+                min=$var
+            elif [ $var -gt $max ]; then
+                max=$var
+            fi
+            moy=$((moy + $var))
+        fi
+    fi
+    i=$((i + 1))
+done
+
+i=$((i - 1))
+moy=$((moy / $i))
+
+echo min : $min
+echo max : $max
+echo moy : $moy
+```
+
+3.
+``` BASH
+#!/bin/bash
+
+function si_nbre() {
+    res='^[+-]?[0-9]+([.][0-9]+)?$'
+    if ! [[ $1 =~ $res ]]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+declare -a array
+while [ 1 -eq 1 ]; do
+    echo -n "Votre numero (A pour arrêt) : "
+    read numOk
+    
+    if [ $numOk = "A" ]; then
+        break
+    fi
+    
+    si_nbre $numOk
+    if [ $? == "1" ]; then
+        echo $numOk "Pas un nombre"
+    else
+        array+=($numOk)
+    fi
+done
+
+# Affichage du tableau
+echo ${array[@]}
+
+min=0
+max=0
+moy=0
+i=1
+
+for var in "${array[@]}"; do
+    if [ $i -eq 1 ]; then
+        min=$var
+        max=$var
+        moy=$((moy + $var))
+    else
+        if [ $var -lt $min ]; then
+            min=$var
+        elif [ $var -gt $max ]; then
+            max=$var
+        fi
+        moy=$((moy + $var))
+    fi
+    i=$((i + 1))
+done
+
+i=$((i - 1))
+moy=$((moy / $i))
+
+echo min : $min
+echo max : $max
+echo moy : $moy
 ```
